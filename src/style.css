@@ -1,0 +1,29 @@
+.input {
+  display: block;
+  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.btn-green {
+  background-color: #34D399;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+.btn-red {
+  background-color: #EF4444;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+.btn-blue {
+  background-color: #3B82F6;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+.group {
+  margin-bottom: 20px;
+}
