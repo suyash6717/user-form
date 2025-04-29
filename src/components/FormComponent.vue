@@ -8,14 +8,14 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label class="form-label">Name</label>
-                        <input v-model="group.name" type="text" class="form-control" placeholder="Name" />
+                        <input v-model.trim="group.name" type="text" class="form-control" placeholder="Name" />
                         <div v-if="groupErrors[index]?.name && !group.name" class="text-danger">{{
                             groupErrors[index].name }}</div>
                     </div>
 
                     <div class="col-md-4">
                         <label class="form-label">Email</label>
-                        <input v-model="group.email" type="email" class="form-control" placeholder="Email" />
+                        <input v-model.trim="group.email" type="email" class="form-control" placeholder="Email" />
                         <div v-if="groupErrors[index]?.email && !group.email" class="text-danger">{{
                             groupErrors[index].email }}</div>
                     </div>
