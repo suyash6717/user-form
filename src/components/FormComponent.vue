@@ -146,8 +146,8 @@ const removeGroup = (index) => {
 
 //Function to format the date
 function formatDate(date) {
-  if (!date) return '';
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    if (!date) return '';
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 //Function to validate the group data
@@ -227,6 +227,24 @@ const callSaveApi = async () => {
 
 }
 
+//Function to reset the data
+const resetForm = () => {
+    postData.groups = [
+        { name: '', email: '', mobile: '' },
+        { name: '', email: '', mobile: '' }
+    ];
+    postData.birthDate = '';
+    postData.gender = '';
+    postData.languages = [];
+    postData.cities = [];
+    postData.file = null;
+
+    groupErrors.value = [];
+    filePreview.value = null;
+    v$.value.$reset();
+}
+
+
 //Function to handle the submit data
 const submitForm = async () => {
     const isValidVuelidate = await v$.value.$validate()
@@ -246,21 +264,8 @@ const submitForm = async () => {
     // Save to localStorage
     localStorage.setItem('submittedData', JSON.stringify(submittedData.value))
 
-    // Reset form
-    postData = {
-        groups: [
-            { name: '', email: '', mobile: '' },
-            { name: '', email: '', mobile: '' }
-        ],
-        birthDate: '',
-        gender: '',
-        languages: [],
-        cities: [],
-        file: null
-    }
-    groupErrors.value = []
-    filePreview.value = null
     toast.success('Form submitted successfully!')
+    resetForm();
 }
 
 //Lifecycle hooks
