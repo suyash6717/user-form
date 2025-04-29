@@ -41,7 +41,7 @@
             <div class="col-md-4">
                 <label class="form-label">Birth Date</label>
                 <VueDatePicker v-model="postData.birthDate" placeholder="Select Date" :enable-time-picker="false"
-                    auto-apply />
+                    auto-apply :format="formatDate" />
                 <div v-if="v$?.birthDate?.$error" class="text-danger">{{ v$.birthDate.required.$message }}</div>
             </div>
 
@@ -142,6 +142,12 @@ const removeGroup = (index) => {
         postData.groups.splice(index, 1)
         groupErrors.value.splice(index, 1)
     }
+}
+
+//Function to format the date
+function formatDate(date) {
+  if (!date) return '';
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 //Function to validate the group data

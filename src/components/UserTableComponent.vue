@@ -1,7 +1,7 @@
 <template>
-    <div v-if="submittedData.length" class="mt-5">
-        <h3>Submitted Data</h3>
-        <table class="table table-bordered mt-3">
+    <div  class="mt-5">
+        <h3>User Data</h3>
+        <table class="table table-bordered mt-3" v-if="submittedData.length">
           <thead>
             <tr>
               <th>#</th>
@@ -29,6 +29,9 @@
             </tr>
           </tbody>
         </table>
+        <div v-else>
+          No Data Found!  
+        </div>
       </div>
 </template>
 <script setup>
